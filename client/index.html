@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+  <title>oauth demo</title>
+</head>
+
+<body>
+  <button id="btn-login">Login</button>
+  <script>
+    window.addEventListener('load', function () {
+
+      var webAuth = new auth0.WebAuth({
+        domain: 'ktei2008.au.auth0.com',
+        clientID: 'gRHTVHV6I0CuLBV8vB1XGII9JUq89LIR',
+        responseType: 'token id_token',
+        scope: 'openid',
+        redirectUri: "http://localhost:3000"
+      });
+
+      var loginBtn = document.getElementById('btn-login');
+
+      loginBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        webAuth.authorize();
+      });
+
+    });
+  </script>
+</body>
+
+</html>
